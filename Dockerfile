@@ -13,6 +13,7 @@ RUN apt-get -qq update && \
     apt-get autoremove -qqy && \
     rm -rf /var/lib/apt/lists/* && \
     ln -s /usr/bin/clang-13 /usr/bin/clang && \
+    ln -s /usr/bin/clang++-13 /usr/bin/clang++ && \
     ln -s /usr/bin/clang-format-13 /usr/bin/clang-format && \
     ln -s /usr/bin/clang-tidy-13 /usr/bin/clang-tidy && \
     ln -s /usr/bin/ld.lld-13 /usr/bin/ld.lld && \
