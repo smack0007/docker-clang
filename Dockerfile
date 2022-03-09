@@ -3,13 +3,13 @@ FROM debian:bullseye
 ARG clang_version=13
 
 RUN apt-get -qq update && \
-    apt-get install -qqy --no-install-recommends ca-certificates gnupg2 lsb-release software-properties-common wget && \
+    apt-get install -qqy --no-install-recommends ca-certificates git gnupg2 lsb-release software-properties-common wget && \
     wget https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh $clang_version && \
     rm ./llvm.sh && \
     apt-get install -qqy clang-tidy-$clang_version clang-format-$clang_version && \
-    apt-get remove -qqy --purge ca-certificates gnupg2 lsb-release software-properties-common wget && \
+    apt-get remove -qqy --purge lsb-release software-properties-common && \
     apt-get autoremove -qqy && \
     rm -rf /var/lib/apt/lists/* && \
     ln -s /usr/bin/clang-13 /usr/bin/clang && \
