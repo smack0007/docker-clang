@@ -23,6 +23,8 @@ jobs:
           images: smack0007/clang
           tags: |
             type=raw,value=13
+            type=raw,value=13.0
+            type=raw,value=13.0.1
             type=sha
       
       - name: Build and push Docker image
