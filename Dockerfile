@@ -3,7 +3,7 @@ FROM debian:bullseye
 ARG clang_version=13
 
 RUN apt-get -qq update && \
-    apt-get install -qqy --no-install-recommends ca-certificates git gnupg2 lsb-release software-properties-common wget && \
+    apt-get install -qqy --no-install-recommends ca-certificates git gnupg2 lsb-release make software-properties-common wget && \
     wget https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh $clang_version && \
