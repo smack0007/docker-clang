@@ -21,6 +21,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login docker.com -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker build . -t ${{ env.DOCKER_IMAGE_NAME }}:latest -t ${{ env.DOCKER_IMAGE_NAME }}:sha-$(git rev-parse HEAD) --label sha:$(git rev-parse HEAD)
-          docker image push ${{ env.DOCKER_IMAGE_NAME }}:latest
+          echo "${{ secrets.DOCKER_PASSWORD }}" | sudo docker login docker.com -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          sudo docker build . -t ${{ env.DOCKER_IMAGE_NAME }}:latest -t ${{ env.DOCKER_IMAGE_NAME }}:sha-$(git rev-parse HEAD) --label sha:$(git rev-parse HEAD)
+          sudo docker image push ${{ env.DOCKER_IMAGE_NAME }}:latest
